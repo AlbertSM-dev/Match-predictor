@@ -14,6 +14,7 @@ from matchpredictor.predictors.home_predictor import HomePredictor
 from matchpredictor.predictors.alphabetically_predictor import AlphabeticallyPredictor
 from matchpredictor.predictors.linear_regression_predictor import train_regression_predictor
 from matchpredictor.predictors.past_results_predictor import train_results_predictor
+from matchpredictor.predictors.home_odd_winner_predictor import home_odd_winner_predictor
 from matchpredictor.predictors.simulation_predictor import train_offense_and_defense_predictor, train_offense_predictor
 from matchpredictor.teams.teams_api import teams_api
 from matchpredictor.teams.teams_provider import TeamsProvider
@@ -26,6 +27,7 @@ def build_model_provider(training_data: List[Result]) -> ModelProvider:
         Model("Home", HomePredictor()),
         Model("Alphabetically", AlphabeticallyPredictor()),
         Model("Points", train_results_predictor(training_data)),
+        Model("Home Odd Winner", home_odd_winner_predictor(training_data)),
         Model("Offense simulator (fast)", train_offense_predictor(training_data, 1_000)),
         Model("Offense simulator", train_offense_predictor(training_data, 10_000)),
         Model("Full simulator (fast)", train_offense_and_defense_predictor(training_data, 1_000)),

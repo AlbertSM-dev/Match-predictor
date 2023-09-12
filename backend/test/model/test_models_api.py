@@ -32,6 +32,7 @@ class TestModelsApi(TestCase):
             {"name": "Home", "predicts_in_progress": False},
             {"name": "Alphabetically", "predicts_in_progress": False},
             {"name": "Points", "predicts_in_progress": False},
+            {"name": "Home Odd Winner", "predicts_in_progress": False},
             {"name": "Offense simulator (fast)", "predicts_in_progress": True},
             {"name": "Offense simulator", "predicts_in_progress": True},
             {"name": "Full simulator (fast)", "predicts_in_progress": True},
